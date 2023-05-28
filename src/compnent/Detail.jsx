@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
-import { setNewMovie } from "../actions";
+import { setNewMovie } from "../redux/action/actionCreatoer";
 import ImgMediaCardDetail from "./CardInfoDetail";
 
 const Detail = ({ newMovie, handleDetail }) => {

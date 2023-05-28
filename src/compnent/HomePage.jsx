@@ -1,6 +1,7 @@
 import { Grid, Typography, Box } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchMoives } from "../API/callMovieAPI";
 import ImgMediaCard from "./CardInfo";
 
 const HomePage = () => {
@@ -8,7 +9,7 @@ const HomePage = () => {
   const dispatch = useDispatch();
 
   const handleSubmilt = () => {
-    dispatch();
+    dispatch(fetchMoives().then((res) => res.data));
   };
   return (
     <div>
