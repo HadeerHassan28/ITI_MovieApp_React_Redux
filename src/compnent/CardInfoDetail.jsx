@@ -1,15 +1,11 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
-//import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-//import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-//import { DataContext } from "../context/contextData";
-//import { useContext } from "react";
-//import { Button } from "@mui/material";
+import { connect } from "react-redux";
 
-export default function ImgMediaCardDetail({ poster_path, title, overview }) {
+const ImgMediaCardDetail = ({ poster_path, title, overview }) => {
   return (
     <Card sx={{ maxWidth: 345 }} className="ms-5">
       <CardMedia
@@ -26,14 +22,10 @@ export default function ImgMediaCardDetail({ poster_path, title, overview }) {
           {overview}
         </Typography>
       </CardContent>
-      {/* <CardActions>
-        <Button variant="contained" color="error" onClick={handleDelate}>
-          Delate
-        </Button>
-        <Button variant="contained" color="success" onClick={detail}>
-          Details
-        </Button>
-      </CardActions> */}
     </Card>
   );
-}
+};
+const mapStateToProps = (state) => {
+  return {};
+};
+export default connect(mapStateToProps)(ImgMediaCardDetail);

@@ -1,26 +1,31 @@
-import * as React from "react";
+import React from "react";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-//import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { DataContext } from "../context/contextData";
-import { useContext } from "react";
-import { Button } from "@mui/material";
+import { connect } from "react-redux";
+import { deleteMovie, setNewMovie } from "../actions";
+import { Button, CardActions } from "@mui/material";
 
-export default function ImgMediaCard({
+const ImgMediaCard = ({
   poster_path,
   title,
   overview,
-  detail,
   id,
-}) {
-  const { handleDelate, handleDetail } = useContext(DataContext);
-  const delateMoive = () => {
-    handleDelate(id);
+  deleteMovie,
+  setNewMovie,
+  navigate,
+}) => {
+  const delateMovie = () => {
+    deleteMovie(id);
   };
-  const detailMovie = () => handleDetail(id);
+
+  const detailMovie = () => {
+    const movie = { poster_path, title, overview, id };
+    setNewMovie(movie);
+    navigate(`/detail/${id}`);
+  };
+
   return (
     <Card sx={{ maxWidth: 345 }} className="ms-5">
       <CardMedia
@@ -33,13 +38,10 @@ export default function ImgMediaCard({
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
-        {/* <Typography variant="body2" color="text.secondary">
-          {overview}
-        </Typography> */}
       </CardContent>
       <CardActions>
-        <Button variant="contained" color="error" onClick={delateMoive}>
-          Delate
+        <Button variant="contained" color="error" onClick={delateMovie}>
+          Delete
         </Button>
         <Button variant="contained" color="success" onClick={detailMovie}>
           Details
@@ -47,4 +49,13 @@ export default function ImgMediaCard({
       </CardActions>
     </Card>
   );
-}
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteMovie: (id) => dispatch(deleteMovie(id)),
+    setNewMovie: (movie) => dispatch(setNewMovie(movie)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(ImgMediaCard);

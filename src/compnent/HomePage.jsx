@@ -1,11 +1,15 @@
 import { Grid, Typography, Box } from "@mui/material";
-import React, { useContext } from "react";
-import { DataContext } from "../context/contextData";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ImgMediaCard from "./CardInfo";
 
 const HomePage = () => {
-  const { dataArr } = useContext(DataContext);
+  const dataArr = useSelector((state) => state.movie.dataArr);
+  const dispatch = useDispatch();
 
+  const handleSubmilt = () => {
+    dispatch();
+  };
   return (
     <div>
       {/* {dataArr && dataArr.map((ele) => <div>{ele.title}</div>)} */}

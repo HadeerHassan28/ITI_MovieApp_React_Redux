@@ -1,19 +1,42 @@
 import React, { useEffect } from "react";
-import { DataContext } from "../context/contextData";
-import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { connect } from "react-redux";
+import axios from "axios";
+import { setNewMovie } from "../actions";
 import ImgMediaCardDetail from "./CardInfoDetail";
 
-export default function Detail() {
-  const { newMoive, handleDetail } = useContext(DataContext);
+const Detail = ({ newMovie, handleDetail }) => {
   const { id } = useParams();
-  useEffect(() => {
-    handleDetail(id);
-  }, [handleDetail, id]);
+  const navigate = useNavigate();
 
-  return (
-    <div>
-      {newMoive && <ImgMediaCardDetail {...newMoive}></ImgMediaCardDetail>}
-    </div>
-  );
-}
+  useEffect(() => {
+    handleDetail(id, navigate);
+  }, [handleDetail, id, navigate]);
+
+  return <div>{newMovie && <ImgMediaCardDetail {...newMovie} />}</div>;
+};
+
+const mapStateToProps = (state) => {
+  return {
+    newMovie: state.movie.newMovie,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleDetail: (id, navigate) => {
+      axios
+        .get(`http://localhost:3000/results/${id}`)
+        .then((response) => {
+          const movie = response.data;
+          dispatch(setNewMovie(movie));
+          navigate(`/detail/${id}`);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Detail);
