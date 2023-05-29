@@ -2,21 +2,6 @@
   "results": [
     {
       "adult": false,
-      "backdrop_path": "/nLBRD7UPR6GjmWQp6ASAfCTaWKX.jpg",
-      "id": 502356,
-      "original_language": "en",
-      "original_title": "The Super Mario Bros. Movie",
-      "overview": "While working underground to fix a water main, Brooklyn plumbers—and brothers—Mario and Luigi are transported down a mysterious pipe and wander into a magical new world. But when the brothers are separated, Mario embarks on an epic quest to find Luigi.",
-      "popularity": 10702.084,
-      "poster_path": "/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg",
-      "release_date": "2023-04-05",
-      "title": "The Super Mario Bros. Movie",
-      "video": false,
-      "vote_average": 7.7,
-      "vote_count": 2875
-    },
-    {
-      "adult": false,
       "backdrop_path": "/fI5RsaM0NSU6TqztRhA2pal5ezv.jpg",
       "id": 385687,
       "original_language": "en",
@@ -29,21 +14,6 @@
       "video": false,
       "vote_average": 7.1,
       "vote_count": 190
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/7bWxAsNPv9CXHOhZbJVlj2KxgfP.jpg",
-      "id": 713704,
-      "original_language": "en",
-      "original_title": "Evil Dead Rise",
-      "overview": "Three siblings find an ancient vinyl that gives birth to bloodthirsty demons that run amok in a Los Angeles apartment building and thrusts them into a primal battle for survival as they face the most nightmarish version of family imaginable.",
-      "popularity": 4462.605,
-      "poster_path": "/5ik4ATKmNtmJU6AYD0bLm56BCVM.jpg",
-      "release_date": "2023-04-12",
-      "title": "Evil Dead Rise",
-      "video": false,
-      "vote_average": 7.1,
-      "vote_count": 1157
     },
     {
       "adult": false,
@@ -269,6 +239,24 @@
       "video": false,
       "vote_average": 6.7,
       "vote_count": 417
+    },
+    {
+      "id": 1102777
+    },
+    {
+      "id": 1102778
+    },
+    {
+      "id": 1102779
+    },
+    {
+      "id": 1102780
+    },
+    {
+      "id": 1102781
+    },
+    {
+      "id": 1102782
     }
   ]
 }

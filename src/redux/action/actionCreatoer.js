@@ -1,31 +1,36 @@
-//import SET_NEW_MOVIE from "./actionTypes";
-import { SET_MOVIES, delate_Movie } from "./actionTypes";
-import { fetchMoives } from "../../API/callMovieAPI";
-// export const setMovies = async (dispatch) => {
-//   return dispatch({ type: SET_MOVIES });
-//   // return {
-//   type: "SET_MOVIES",
-
-// };
-//};
-
-export const setMovies = () => (dispatch) => {
-  fetchMoives().then((res) => {
-    dispatch({ type: SET_MOVIES, payload: res.data });
-  });
+import { SET_MOVIES, DETAIL_MOVIE } from "./actionTypes";
+import axios from "axios";
+//! Display:
+export const setMovies = (dispatch) => {
+  axios
+    .get("http://localhost:3000/results")
+    .then((res) => {
+      dispatch({ type: SET_MOVIES, payload: res.data });
+      // console.log(res.data); //?arrived
+    })
+    .catch((error) => {
+      console.log("error in action creatoers in setMoive");
+    });
 };
+//! Delate:
 export const delateMovie = (id, dispatch) => {
-  fetchMoives().then((res) => {
-    dispatch({ type: delate_Movie });
-  });
+  axios
+    .delete(`http://localhost:3000/results/${id}`)
+    .then(() => {
+      setMovies(dispatch);
+    })
+    .catch((error) => {
+      console.log("error in action creatoers in delate moive");
+    });
 };
-
-// }
-// export const setNewMovie = async (dispatch) => {
-//   return dispatch({ type: SET_NEW_MOVIE });
-
-// return {
-//   type: "SET_NEW_MOVIE",
-//   payload: movie,
-// };
-//};
+//! Details:
+export const detailsOfMoive = (id, dispatch) => {
+  axios
+    .get(`http://localhost:3000/results/${id}`)
+    .then((res) => {
+      dispatch({ type: DETAIL_MOVIE, payload: res.data });
+    })
+    .catch((error) => {
+      console.log("error in action creators in detailsOfMovie", error);
+    });
+};

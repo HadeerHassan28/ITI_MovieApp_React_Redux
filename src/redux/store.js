@@ -1,17 +1,19 @@
 //import { compose } from "@mui/system";
-import { configureStore } from "@reduxjs/toolkit";
-//import { createStore, applyMiddleware } from "react-redux";
+//import { configureStore } from "@reduxjs/toolkit";
 //import reduxThunk from "redux-thunk";
-//import AddMovie from "./reducers/moiveReducer";
+import { AddMovie } from "./reducers/moiveReducer";
+import { createStore } from "redux";
+//import moivieSlice from "../compnent/toolkit/moivieSlice";
+//const enhancer = window.__REDUX_DEVTOOLS_EXTENTION_COMPSE__;
 
-import moivieSlice from "../compnent/toolkit/moivieSlice";
-//const googleExt = window._REDUX_DEVTOOLS_EXTENTION_COMPSE__ || compose;
+const store = createStore(AddMovie);
 
-//const store = createStore(AddMovie, googleExt(applyMiddleware(reduxThunk)));
-
-const store = configureStore({
-  reducer: {
-    movie: moivieSlice,
-  },
-});
+// const store = configureStore(
+//   {
+//     reducer: {
+//       movie: moivieSlice,
+//     },
+//   }
+// googleExt(applyMiddleware(reduxThunk))
+//);
 export default store;

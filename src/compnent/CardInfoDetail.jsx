@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { connect } from "react-redux";
-
+import { detailsOfMoive } from "../redux/action/actionCreatoer";
 const ImgMediaCardDetail = ({ poster_path, title, overview }) => {
   return (
     <Card sx={{ maxWidth: 345 }} className="ms-5">
@@ -25,7 +25,11 @@ const ImgMediaCardDetail = ({ poster_path, title, overview }) => {
     </Card>
   );
 };
-const mapStateToProps = (state) => {
-  return {};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    detailMoive: (id) => dispatch(detailsOfMoive(id)),
+  };
 };
-export default connect(mapStateToProps)(ImgMediaCardDetail);
+
+export default connect(mapDispatchToProps)(ImgMediaCardDetail);
+//export default ImgMediaCardDetail;

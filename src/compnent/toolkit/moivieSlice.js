@@ -7,6 +7,9 @@ export const movieSlice = createSlice({
   name: "movie",
   initialState,
   reducers: {
+    setMovies: (state, action) => {
+      state.dataArr = action.payload;
+    },
     addOne: (state) => {
       state.dataArr.push(state.newMovie);
       state.newMovie = {};

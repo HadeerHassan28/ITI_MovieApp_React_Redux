@@ -1,18 +1,16 @@
+import { SET_MOVIES, DETAIL_MOVIE } from "../action/actionTypes";
 const initialState = {
   dataArr: [],
-  newMovie: {},
+  detailMovie: {},
 };
 export const AddMovie = (state = initialState, action) => {
-  switch (state.type) {
-    case "SET_MOVIES":
+  switch (action.type) {
+    case SET_MOVIES:
+      return { ...state, dataArr: action.payload };
+    case DETAIL_MOVIE:
       return {
         ...state,
-        dataArr: action.payload,
-      };
-    case "SET_NEW_MOVIE":
-      return {
-        ...state,
-        newMovie: action.payload,
+        detailMovie: action.payload,
       };
     default:
       return state;

@@ -1,16 +1,17 @@
 import { Grid, Typography, Box } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMoives } from "../API/callMovieAPI";
 import ImgMediaCard from "./CardInfo";
+import { setMovies } from "../redux/action/actionCreatoer";
 
 const HomePage = () => {
-  const { dataArr } = useSelector((state) => state.movie);
+  const dataArr = useSelector((state) => state.dataArr);
   const dispatch = useDispatch();
 
-  const handleSubmilt = () => {
-    dispatch(fetchMoives().then((res) => res.data));
-  };
+  // console.log(dataArr);
+  useEffect(() => {
+    setMovies(dispatch);
+  }, []);
   return (
     <div>
       {/* {dataArr && dataArr.map((ele) => <div>{ele.title}</div>)} */}
