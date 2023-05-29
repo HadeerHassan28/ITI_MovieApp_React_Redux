@@ -9,10 +9,10 @@ const Detail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const detailOfMovie = useSelector((state) => state.detailMovie);
-  console.log(detailOfMovie);
+
   useEffect(() => {
     detailsOfMoive(id, dispatch);
-  }, [id, dispatch]);
+  }, []);
 
   return (
     <div>{detailOfMovie && <ImgMediaCardDetail {...detailOfMovie} />}</div>

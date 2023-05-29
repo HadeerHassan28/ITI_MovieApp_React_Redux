@@ -10,8 +10,7 @@ import {
   detailsOfMoive,
 } from "../redux/action/actionCreatoer";
 import { Button, CardActions } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 const ImgMediaCard = ({ poster_path, title, id }) => {
   const dispatch = useDispatch();
   const handleSubmilt = () => {
@@ -21,10 +20,8 @@ const ImgMediaCard = ({ poster_path, title, id }) => {
     delateMovie(id, dispatch);
   };
 
-  const navigate = useNavigate();
   const detailMovie = (id) => {
     detailsOfMoive(id);
-    navigate(`/detail/${id}`);
   };
 
   return (
@@ -44,9 +41,11 @@ const ImgMediaCard = ({ poster_path, title, id }) => {
         <Button variant="contained" color="error" onClick={handleDelate}>
           Delete
         </Button>
-        <Button variant="contained" color="success" onClick={detailMovie}>
-          Details
-        </Button>
+        <Link to={`/detail/${id}`}>
+          <Button variant="contained" color="success" onClick={detailMovie}>
+            Details
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );
