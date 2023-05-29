@@ -3,8 +3,8 @@ const initialState = {
   dataArr: [],
   newMovie: {},
 };
-export const counterSlice = createSlice({
-  name: "counter",
+export const movieSlice = createSlice({
+  name: "movie",
   initialState,
   reducers: {
     addOne: (state) => {
@@ -22,6 +22,6 @@ export const counterSlice = createSlice({
     },
   },
 });
-export const { addOne, deleteOne, setNewMovie } = counterSlice.actions;
+export const { addOne, deleteOne, setNewMovie } = movieSlice.actions;
 
-export default counterSlice.reducer;
+export default movieSlice.reducer;

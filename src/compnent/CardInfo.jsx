@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { connect } from "react-redux";
-import { deleteMovie, setNewMovie } from "../actions";
+import { delateMovie } from "../redux/action/actionCreatoer";
 import { Button, CardActions } from "@mui/material";
 
 const ImgMediaCard = ({
@@ -12,19 +12,18 @@ const ImgMediaCard = ({
   title,
   overview,
   id,
-  deleteMovie,
-  setNewMovie,
+
   navigate,
 }) => {
-  const delateMovie = () => {
-    deleteMovie(id);
+  const handleDelate = () => {
+    delateMovie(id);
   };
 
-  const detailMovie = () => {
-    const movie = { poster_path, title, overview, id };
-    setNewMovie(movie);
-    navigate(`/detail/${id}`);
-  };
+  // const detailMovie = () => {
+  //   const movie = { poster_path, title, overview, id };
+  //    setNewMovie(movie);
+  //   navigate(`/detail/${id}`);
+  // };
 
   return (
     <Card sx={{ maxWidth: 345 }} className="ms-5">
@@ -40,12 +39,12 @@ const ImgMediaCard = ({
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained" color="error" onClick={delateMovie}>
+        <Button variant="contained" color="error" onClick={handleDelate}>
           Delete
         </Button>
-        <Button variant="contained" color="success" onClick={detailMovie}>
+        {/* <Button variant="contained" color="success" onClick={detailMovie}>
           Details
-        </Button>
+        </Button> */}
       </CardActions>
     </Card>
   );
@@ -53,8 +52,8 @@ const ImgMediaCard = ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteMovie: (id) => dispatch(deleteMovie(id)),
-    setNewMovie: (movie) => dispatch(setNewMovie(movie)),
+    deleteMovie: (id) => dispatch(delateMovie(id)),
+    // setNewMovie: (movie) => dispatch(setNewMovie(movie)),
   };
 };
 

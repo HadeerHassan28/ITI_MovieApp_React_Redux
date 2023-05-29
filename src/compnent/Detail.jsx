@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
-import { setNewMovie } from "../redux/action/actionCreatoer";
+import { setMovies } from "../redux/action/actionCreatoer";
 import ImgMediaCardDetail from "./CardInfoDetail";
 
 const Detail = ({ newMovie, handleDetail }) => {
@@ -29,7 +29,7 @@ const mapDispatchToProps = (dispatch) => {
         .get(`http://localhost:3000/results/${id}`)
         .then((response) => {
           const movie = response.data;
-          dispatch(setNewMovie(movie));
+          dispatch(setMovies(movie));
           navigate(`/detail/${id}`);
         })
         .catch((error) => {

@@ -5,7 +5,7 @@ import { fetchMoives } from "../API/callMovieAPI";
 import ImgMediaCard from "./CardInfo";
 
 const HomePage = () => {
-  const dataArr = useSelector((state) => state.movie.dataArr);
+  const { dataArr } = useSelector((state) => state.movie);
   const dispatch = useDispatch();
 
   const handleSubmilt = () => {

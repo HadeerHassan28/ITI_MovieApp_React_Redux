@@ -1,6 +1,6 @@
 //import SET_NEW_MOVIE from "./actionTypes";
-import SET_MOVIES from "./actionTypes";
-import fetchMoives from "../../API/callMovieAPI";
+import { SET_MOVIES, delate_Movie } from "./actionTypes";
+import { fetchMoives } from "../../API/callMovieAPI";
 // export const setMovies = async (dispatch) => {
 //   return dispatch({ type: SET_MOVIES });
 //   // return {
@@ -14,8 +14,11 @@ export const setMovies = () => (dispatch) => {
     dispatch({ type: SET_MOVIES, payload: res.data });
   });
 };
-
-// export const setNewMovie = (id) => {
+export const delateMovie = (id, dispatch) => {
+  fetchMoives().then((res) => {
+    dispatch({ type: delate_Movie });
+  });
+};
 
 // }
 // export const setNewMovie = async (dispatch) => {
